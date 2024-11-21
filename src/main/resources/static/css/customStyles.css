@@ -1,0 +1,103 @@
+.navbar .navbar-brand {
+    font-size: 40px;
+    font-weight: 700;
+    color: white !important; /* Mantiene siempre el color blanco */
+}
+.navbar .nav-link {
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+/* Mantiene los enlaces en blanco por defecto */
+.navbar a {
+    color: white;
+}
+/* Cambia el color de los enlaces (excepto la marca) a un gris oscuro al pasar el mouse */
+.navbar .nav-link:hover {
+    color: #B0B0B0; /* Gris oscuro */
+}
+/* Fondo y estilo del contenedor principal */
+.main-container {
+    background-color: #ffffff;
+    padding: 50px 0;
+    margin: 0 auto;
+    max-width: 1200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Fondo gris para la primera y tercera sección */
+.acerca-seccion,
+.historia-seccion {
+    background-color: #101010;
+    color: #333;
+}
+
+/* Fondo negro para la segunda y cuarta sección */
+.mvv-seccion,
+.equipo-seccion {
+    background-color: #101010;
+    color: #ddd;
+}
+
+/* Estilos para los cuadros de Misión, Visión y Valores */
+.testimonial {
+    background-color: #000000; /* Fondo blanco para los cuadros */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial h3 {
+    color: #0066cc; /* Título en azul */
+    margin-bottom: 15px;
+}
+
+.testimonial p {
+    color: #555555; /* Texto en gris oscuro */
+    font-size: 1rem;
+}
+
+/* Botones personalizados */
+.button {
+    background-color: #0066cc;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #005bb5;
+}
+
+/* Estilos para el footer */
+footer {
+    background-color: #101010 !important;
+}
+footer h5 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+footer a {
+    text-decoration: none;
+    color: #fff;
+}
+footer a:hover {
+    text-decoration: underline;
+    color: #ddd;
+}
+footer p {
+    margin: 0;
+}
+footer i {
+    font-size: 18px;
+}

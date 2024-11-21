@@ -1,0 +1,180 @@
+/* Estilos principales para la sección del producto */
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.icon-home, .icon-cart, .icon-user {
+    font-size: 1.8rem; /* Aumenta el tamaño de los íconos */
+    color: #333; /* Color negro */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Transición suave de color */
+}
+
+.icon-home:hover, .icon-cart:hover, .icon-user:hover {
+    color: #007bff; /* Cambia el color a azul en hover */
+}
+
+.dropdown-menu {
+    min-width: 200px;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.dropdown-menu strong, .dropdown-menu span {
+    display: block;
+    color: #333;
+}
+
+
+
+.modelos-title {
+    margin: 0;
+    font-size: 2rem;
+    color: #333;
+}
+
+
+.product-tile {
+    text-align: center;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin-right: 20px; /* Espacio entre productos */
+}
+
+.product-tile-header {
+    margin-bottom: 20px;
+}
+
+.badge {
+    display: inline-block;
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.product-tile-headline {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.product-tile img {
+    width: 200; /* Ajusta este valor según el tamaño */
+    height: 200px; /* Mantiene la proporción de las imágenes */
+}
+
+.modelos-title {
+    font-weight: 700;  /* Asegura que el grosor de la fuente sea más prominente */
+        color: #00;  /* Color de texto negro */
+
+}
+
+
+
+.product-tile-positioning {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.product-tile-ctas {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+.product-tile-ctas a.icon-wrapper {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.product-tile-ctas a.icon-wrapper .icon {
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+.product-tile-image-wrapper img {
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Espaciado entre productos en la segunda sección */
+.second-row .product-tile {
+    margin-right: 25px; /* Espacio entre productos en la segunda fila */
+}
+
+/* Espaciado inferior entre las secciones */
+.second-row {
+    margin-top: 40px; /* Espacio entre la primera y segunda sección */
+}
+
+/* Ajustes adicionales para la segunda sección */
+.product-tile-set {
+    margin-bottom: 30px; /* Separación entre la primera y segunda fila */
+}
+
+/* Estilos para el botón "Más detalles" */
+.btn-detalles {
+    width: auto;         /* Restablece el ancho automático */
+    height: auto;        /* Restablece la altura automática */
+    padding: 0.5rem 1rem; /* Ajusta el espacio interno para un tamaño normal */
+    font-size: 1rem;     /* Ajusta el tamaño de la fuente */
+    line-height: 1.5;    /* Establece la altura de línea para centrado vertical */
+}
+
+/* Estilos para el campo de cantidad */
+.cantidad-input {
+    width: 50px;
+    max-width: 50px;
+    height: 30px;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: -5px; /* Ajusta este valor según sea necesario */
+}
+
+
+/* Estilo para el botón de añadir al carrito */
+.add-to-cart-btn {
+    font-size: 1rem;
+    padding: 6px 16px;
+    margin-left: 10px;
+    margin-top: -5px; /* Ajusta este valor según sea necesario */
+}
+
+
+
+
+
+footer {
+    background-color: #101010 !important;
+}
+footer h5 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+footer a {
+    text-decoration: none;
+    color: #fff;
+}
+footer a:hover {
+    text-decoration: underline;
+    color: #ddd;
+}
+footer p {
+    margin: 0;
+}
+footer i {
+    font-size: 18px;
+}

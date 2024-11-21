@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soporte - DevStore</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #000;
+            color: #f8f9fa;
+        }
+        .navbar .nav-link {
+            color: white !important;
+            font-weight: 600;
+        }
+        .navbar .nav-link:hover {
+            color: #B0B0B0 !important;
+        }
+        /* Estilos para el footer */
+footer {
+    background-color: #101010 !important;
+}
+footer h5 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+footer a {
+    text-decoration: none;
+    color: #fff;
+}
+footer a:hover {
+    text-decoration: underline;
+    color: #ddd;
+}
+footer p {
+    margin: 0;
+}
+footer i {
+    font-size: 18px;
+}
+    </style>
+</head>
+<body>
+
+<!-- Barra de navegación -->
+<section>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" th:href="@{/homepage}">Inicio</a>
+                    <a class="nav-link" th:href="@{acerca}">Acerca de nosotros</a>
+                    <a class="nav-link" th:href="@{acerca}">Contacto</a>
+                    <a class="nav-link" th:href="@{/comprar}">Comprar</a>
+                    <a class="nav-link" th:href="@{/soporte}">Soporte</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</section>
+
+<!-- Contenido Principal -->
+<div class="container my-5">
+    <h2 class="mb-4">Centro de Soporte de DevStore</h2>
+    <p>Bienvenido a nuestro Centro de Soporte. Aquí en DevStore, nuestro equipo de soporte está comprometido a ayudarte con cualquier inconveniente o duda que puedas tener en tu experiencia de compra. Nos esforzamos por ofrecer respuestas claras y rápidas para que puedas disfrutar de tus productos sin preocupaciones.</p>
+
+    <section class="mt-4">
+        <h3>Soluciones Rápidas a Problemas Comunes</h3>
+        <p>¿Tu pedido no ha llegado en la fecha prevista? ¿Problemas con la configuración de un dispositivo? Aquí ofrecemos soluciones a los problemas más frecuentes que encuentran nuestros clientes. Asegúrate de revisar nuestras guías antes de contactarnos; muchas veces, encontrarás la solución que buscas de manera rápida y eficiente.</p>
+
+        <h4>Temas Frecuentes</h4>
+        <ul>
+            <li>Problemas de Pago: Si tienes problemas al realizar el pago, te sugerimos verificar los datos de tu tarjeta e intentar nuevamente.</li>
+            <li>Configuración del Producto: Sigue nuestras guías paso a paso para la configuración inicial de tu dispositivo.</li>
+            <li>Actualizaciones de Software: Ofrecemos detalles sobre cómo mantener tus dispositivos actualizados para un rendimiento óptimo.</li>
+        </ul>
+    </section>
+
+    <section class="mt-4">
+        <h3>Contacta a Nuestro Equipo de Soporte</h3>
+        <p>Si necesitas asistencia personalizada, nuestro equipo de soporte está disponible 24/7. Puedes comunicarte con nosotros a través de correo electrónico, chat en vivo, o por teléfono. Nos enorgullece resolver tus problemas y mejorar tu experiencia en DevStore. Recuerda tener tu número de pedido a la mano para agilizar el proceso de ayuda.</p>
+    </section>
+</div>
+
+<!-- Footer -->
+<footer class="bg-black text-white py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h5>Compañia</h5>
+                <ul class="list-unstyled">
+                    <li><a th:href="@{acerca}" class="text-white">About Us</a></li>
+                    <li><a th:href="@{acerca}" class="text-white">Blog</a></li>
+                    <li><a th:href="@{acerca}" class="text-white">Careers</a></li>
+                    <li><a th:href="@{acerca}" class="text-white">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3">
+                <h5>Soporte</h5>
+                <ul class="list-unstyled">
+                    <li><a th:href="@{soporte}" class="text-white">Help Center</a></li>
+                    <li><a th:href="@{soporte}" class="text-white">Safety Center</a></li>
+                    <li><a th:href="@{soporte}" class="text-white">Community Guidelines</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3">
+                <h5>Terminos y condiciones</h5>
+                <ul class="list-unstyled">
+                    <li><a th:href="@{terminos}" class="text-white">Cookies Policy</a></li>
+                    <li><a th:href="@{terminos}" class="text-white">Privacy Policy</a></li>
+                    <li><a th:href="@{terminos}" class="text-white">Terms of Service</a></li>
+                    <li><a th:href="@{terminos}" class="text-white">Law Enforcement</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
+

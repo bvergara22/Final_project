@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos y Condiciones - DevStore</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #000;
+            color: #f8f9fa;
+        }
+        .navbar .nav-link {
+            color: white !important;
+            font-weight: 600;
+        }
+        .navbar .nav-link:hover {
+            color: #B0B0B0 !important;
+        }
+        /* Estilos para el footer */
+footer {
+    background-color: #101010 !important;
+}
+footer h5 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+footer a {
+    text-decoration: none;
+    color: #fff;
+}
+footer a:hover {
+    text-decoration: underline;
+    color: #ddd;
+}
+footer p {
+    margin: 0;
+}
+footer i {
+    font-size: 18px;
+}
+    </style>
+</head>
+<body>
+
+<!-- Barra de navegación -->
+<section>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" th:href="@{/homepage}">Inicio</a>
+                    <a class="nav-link" th:href="@{acerca}">Acerca de nosotros</a>
+                    <a class="nav-link" th:href="@{acerca}">Contacto</a>
+                    <a class="nav-link" th:href="@{/comprar}">Comprar</a>
+                    <a class="nav-link" th:href="@{/soporte}">Soporte</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</section>
+
+<!-- Contenido Principal -->
+<div class="container my-5">
+    <h2 class="mb-4">Términos y Condiciones de Uso</h2>
+    <p>Al utilizar el sitio web DevStore, aceptas cumplir con los términos y condiciones detallados aquí. Esta sección describe los derechos y obligaciones de los usuarios y de DevStore en relación al uso de nuestra plataforma y servicios.</p>
+
+    <section class="mt-4">
+        <h3>Condiciones de Uso</h3>
+        <p>DevStore proporciona acceso a su sitio web y a sus servicios con la condición de que aceptes cumplir con todas las leyes aplicables y estas condiciones. Nos reservamos el derecho de modificar estos términos en cualquier momento, por lo que recomendamos que los revises periódicamente.</p>
+
+        <h4>Uso Permitido</h4>
+        <p>El uso de este sitio web debe ser exclusivamente personal y no comercial. Está prohibido copiar, modificar o distribuir contenido sin autorización expresa. El incumplimiento de esta cláusula puede resultar en la restricción o cancelación de tu cuenta.</p>
+    </section>
+
+    <section class="mt-4">
+        <h3>Privacidad y Protección de Datos</h3>
+        <p>Respetamos tu privacidad y nos comprometemos a proteger tus datos personales. Consulta nuestra <a href="@{terminos}" class="text-white">Política de Privacidad</a> para entender cómo recopilamos y utilizamos tu información. DevStore cumple con todas las regulaciones de protección de datos vigentes.</p>
+    </section>
+
+    <section class="mt-4">
+        <h3>Política de Devoluciones</h3>
+        <p>Ofrecemos una política de devolución de 30 días para la mayoría de los productos. Si no estás satisfecho con tu compra, contáctanos para obtener un reembolso o cambio. Revisa los detalles completos de nuestra política de devoluciones en nuestra sección de ayuda.</p>
+    </section>
+</div>
+
+<!-- Footer -->
+<footer class="bg-black text-white py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h5>Compañia</h5>
+                <ul class="list-unstyled">
+                    <li><a th:href="@{acerca}" class="text-white">About Us</a></li>
+                    <li><a th:href="@{acerca}" class="text-white">Blog</a></li>
+                    <li><a th:href="@{acerca}" class="text-white">Careers</a></li>
+                    <li><a th:href="@{acerca}" class="text-white">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3">
+                <h5>Soporte</h5>
+                <ul class="list-unstyled">
+                    <li><a th:href="@{soporte}" class="text-white">Help Center</a></li>
+                    <li><a th:href="@{soporte}" class="text-white">Safety Center</a></li>
+                    <li><a th:href="@{soporte}" class="text-white">Community Guidelines</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3">
+                <h5>Terminos y condiciones</h5>
+                <ul class="list-unstyled">
+                    <li><a th:href="@{terminos}" class="text-white">Cookies Policy</a></li>
+                    <li><a th:href="@{terminos}" class="text-white">Privacy Policy</a></li>
+                    <li><a th:href="@{terminos}" class="text-white">Terms of Service</a></li>
+                    <li><a th:href="@{terminos}" class="text-white">Law Enforcement</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
+

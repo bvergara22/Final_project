@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de Nosotros - DevStore</title>
+    <!-- Enlace a los estilos personalizados -->
+    <link rel="stylesheet" th:href="@{/css/customStyles.css}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <!-- Font Awesome para los íconos del footer -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap Bundle JS (incluye Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<!-- Barra de navegación -->
+<section class="acerca-seccion ">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" th:href="@{/homepage}">Inicio</a>
+                    <a class="nav-link" th:href="@{acerca}">Acerca de nosotros</a>
+                    <a class="nav-link" th:href="@{acerca}">Contacto</a>
+                    <a class="nav-link" th:href="@{/comprar}">Comprar</a>
+                    <a class="nav-link" th:href="@{/soporte}">Soporte</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Acerca de nosotros -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Acerca de nosotros</h2>
+                <p class="lead">DevStore es la plataforma líder en la venta de smartphones de gama alta. Nuestro objetivo es ofrecer a nuestros clientes la mejor experiencia de compra, combinando una selección exclusiva de dispositivos de las marcas más innovadoras, a precios competitivos.</p>
+                <p>Desde nuestros inicios, nos hemos centrado en ofrecer lo último en tecnología móvil, con un enfoque en calidad, confianza y servicio. Con una interfaz moderna, procesos de compra simplificados y soporte 24/7, DevStore se ha posicionado como el destino preferido para los amantes de la tecnología.</p>
+                <p>Nuestro compromiso es brindar una experiencia de compra única y personalizada, con la mejor selección de dispositivos y el servicio más rápido y confiable.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="https://via.placeholder.com/600x400" alt="Nuestra historia" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección 2: Misión, Visión y Valores -->
+<section class="mvv-seccion">
+    <div class="container">
+        <h2 class="text-center mb-5">Nuestra Filosofía</h2>
+        <div class="row">
+            <!-- Misión -->
+            <div class="col-md-4">
+                <div class="testimonial mision">
+                    <h3>Misión</h3>
+                    <p>Proporcionar a nuestros clientes acceso a los mejores smartphones del mercado,
+                        con un enfoque en calidad y precio.</p>
+                </div>
+            </div>
+            <!-- Visión -->
+            <div class="col-md-4">
+                <div class="testimonial vision">
+                    <h3>Visión</h3>
+                    <p>Ser el sitio de referencia para la compra de dispositivos móviles de alta gama,
+                        expandiendo nuestra oferta y servicio a nivel global.</p>
+                </div>
+            </div>
+            <!-- Valores -->
+            <div class="col-md-4">
+                <div class="testimonial valores">
+                    <h3>Valores</h3>
+                    <p>Compromiso, innovación, calidad,
+                        y un servicio al cliente excepcional son los pilares que guían nuestras operaciones día a día.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección 3: Nuestra Historia -->
+<section class="historia-seccion">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Nuestra Historia</h2>
+                <p>DevStore comenzó con una simple idea: proporcionar un acceso rápido y fácil a la tecnología más avanzada. A lo largo de los años, hemos crecido hasta convertirnos en un referente en la venta de smartphones de alta gama, ofreciendo una plataforma intuitiva y confiable que nuestros clientes pueden utilizar desde cualquier parte del mundo.</p>
+                <p>A medida que expandimos nuestro catálogo de productos y servicios, seguimos comprometidos con ofrecer la mejor experiencia de compra en línea, apoyada por un equipo de expertos en tecnología y un servicio de atención al cliente disponible en todo momento.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="https://via.placeholder.com/600x400" alt="Equipo DevStore" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección 4: Nuestro Equipo -->
+<section class="equipo-seccion">
+    <div class="container">
+        <h2 class="text-center mb-5">Conoce a Nuestro Equipo</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <img src="https://via.placeholder.com/150" alt="CEO" class="rounded-circle mb-3">
+                <h4>María González</h4>
+                <p>CEO y Fundadora</p>
+            </div>
+            <div class="col-md-4">
+                <img src="https://via.placeholder.com/150" alt="CTO" class="rounded-circle mb-3">
+                <h4>Juan Pérez</h4>
+                <p>CTO</p>
+            </div>
+            <div class="col-md-4">
+                <img src="https://via.placeholder.com/150" alt="CMO" class="rounded-circle mb-3">
+                <h4>Laura Martínez</h4>
+                <p>CMO</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-black text-white py-4">
+    <div class="container">
+        <div class="row">
+            <!-- Company Section -->
+            <div class="col-md-3">
+                <h5>Compañia</h5>
+                <ul class="list-unstyled">
+                    <li><a th:href="@{acerca}" class="text-white">About Us</a></li>
+                    <li><a th:href="@{acerca}" class="text-white">Blog</a></li>
+                    <li><a th:href="@{acerca}" class="text-white">Careers</a></li>
+                    <li><a th:href="@{acerca}" class="text-white">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Soporte seccion -->
+            <div class="col-md-3">
+                <h5>Soporte</h5>
+                <ul class="list-unstyled">
+                    <li><a th:href="@{soporte}" class="text-white">Help Center</a></li>
+                    <li><a th:href="@{soporte}" class="text-white">Safety Center</a></li>
+                    <li><a th:href="@{soporte}" class="text-white">Community Guidelines</a></li>
+                </ul>
+            </div>
+
+            <!-- Terminos seccion -->
+            <div class="col-md-3">
+                <h5>Terminos y condiciones</h5>
+                <ul class="list-unstyled">
+                    <li><a th:href="@{terminos}" class="text-white">Cookies Policy</a></li>
+                    <li><a th:href="@{terminos}" class="text-white">Privacy Policy</a></li>
+                    <li><a th:href="@{terminos}" class="text-white">Terms of Service</a></li>
+                    <li><a th:href="@{terminos}" class="text-white">Law Enforcement</a></li>
+                </ul>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-6 text-center text-md-start">
+                    <p>&copy; 2024 DevStore. All rights reserved</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="https://www.instagram.com" class="text-white"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com" class="text-white mx-2"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.twitter.com" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com" class="text-white mx-2"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

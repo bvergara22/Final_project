@@ -1,0 +1,299 @@
+.navbar .navbar-brand {
+    font-size: 40px;
+    font-weight: 700;
+    color: white !important; /* Mantiene siempre el color blanco */
+}
+.navbar .nav-link {
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+/* Mantiene los enlaces en blanco por defecto */
+.navbar a {
+    color: white;
+}
+/* Cambia el color de los enlaces (excepto la marca) a un gris oscuro al pasar el mouse */
+.navbar .nav-link:hover {
+    color: #B0B0B0; /* Gris oscuro */
+}
+.seccion-1 {
+    background-color: #000000;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-position-y: 100%;
+    min-height: 98vh;
+    padding-bottom: 8%;
+
+}
+.texto-intro{
+    color: #BABABA;
+    padding-top: 45px;
+}
+.texto-intro h2{
+    color: white;
+    font-size: 52px;
+    padding-top: 25px;
+    padding-bottom: 30px;
+}
+.texto-intro p{
+    font-size: 16.2px;
+    padding-bottom: 12px;
+}
+.seccion-1 .btn {
+    border-radius: 10px; /* Ajusta el valor para hacer los bordes más o menos redondeados */
+
+}
+.btn-lg-custom {
+    padding: 60px 60px; /* Aumenta el tamaño del botón */
+    font-size: 18px !important; /* Aumenta el tamaño de la fuente */
+}
+img {
+    width: 440px;
+    height: auto;
+    position: relative;
+    left: 140px;
+    top: 100px; /* Mueve la imagen hacia abajo */
+}
+
+
+
+
+.seccion-2 {
+    background-color: #101010;
+    padding-bottom: 120px;
+    padding-top: 80px;
+}
+.img-large {
+    width: 1000px;
+    height: auto;
+    margin-top: 0%;
+    margin-left: -30%;
+    background-color: black; /* Fondo gris claro */;
+    padding: 10px; /* Espacio interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+.txt-int2 h2 {
+    font-size: 56px;
+    color: white;
+}
+.txt-int2 p {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    color: #BABABA;
+}
+
+.testimonials {
+    margin-top: 40px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.testimonial-card {
+    background-color: black;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid black;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px); /* Desplazamiento hacia arriba */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+}
+
+.testimonial-logo img {
+    height: auto;
+    margin-top: -15px;
+}
+.testimonial-logo img[alt="apple-logo"] {
+    width: 50px; /* Tamaño reducido para el logo de Apple */
+}
+.testimonial-logo img[alt="samsung-logo"] {
+    width: 100px;
+}
+.testimonial-card p {
+    padding-top: 2px;
+    font-size: 14px;
+    font-style: italic;
+    color: #BABABA;
+}
+.testimonial-card h5 {
+    color: #ddd;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 18px;
+}
+.testimonial-card small {
+    color: #979797;
+}
+
+
+
+
+.seccion-3 {
+    padding-bottom: 140px;
+    padding-top: 100px;
+    background-color:  black;
+}
+.text-3 h2{
+    font-size: 52px;
+    color: white;
+}
+.text-3 p{
+    padding-top: 10px;
+    padding-bottom: 30px;
+    color:#BABABA;
+}
+.video-card {
+    background-color: #101010; /* Fondo gris claro */;
+    padding: 20px; /* Espacio interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    margin-bottom: 30px; /* Espacio entre los videos */
+}
+.video-card iframe {
+    width: 560px; /* Mantener el ancho original */
+    height: 315px; /* Mantener la altura original */
+}
+
+
+
+
+footer {
+    background-color: #101010 !important;
+}
+footer h5 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+footer a {
+    text-decoration: none;
+    color: #fff;
+}
+footer a:hover {
+    text-decoration: underline;
+    color: #ddd;
+}
+footer p {
+    margin: 0;
+}
+footer i {
+    font-size: 18px;
+}
+
+
+
+
+/* Estilo para centrar el formulario */
+.login-register-container {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    z-index: 9999;
+}
+
+.login-register-box {
+    background-color: #101010; /* Fondo gris oscuro */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+}
+
+.login-register-box h3 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff; /* Letras blancas */
+}
+
+.form-label {
+    color: #fff;
+}
+
+.down-divider {
+    color: #fff;
+    text-align: center;
+}
+
+.down-divider a {
+    color: #007bff;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.login-button, .register-button {
+    background-color: #007bff;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-button:hover, .register-button:hover {
+    background-color: #0056b3;
+}
+
+.dropdown-divider {
+    margin: 20px 0;
+    border-top: 1px solid #ddd;
+}
+
+.form-container {
+    display: block;
+}
+
+.message-container {
+    margin: 20px 0; /* Espacio superior e inferior para separar del formulario */
+}
+
+.alert {
+    padding: 10px;
+    margin: 0 auto; /* Centrar horizontalmente */
+    border-radius: 8px;
+    display: none; /* Oculto por defecto */
+    color: #fff; /* Texto blanco */
+    width: 100%%; /* Ancho del mensaje, puedes ajustarlo */
+    max-width: 800px; /* Ancho máximo para pantallas grandes */
+    transition: opacity 0.3s ease; /* Transición para el desvanecimiento */
+    opacity: 1; /* Opacidad inicial */
+}
+
+.alert.error {
+    background-color: #f8d7da; /* Fondo rojo claro */
+    color: #721c24; /* Texto rojo oscuro */
+}
+
+.alert.success {
+    background-color: #d4edda; /* Fondo verde claro */
+    color: #155724; /* Texto verde oscuro */
+}
+
+/* Clases para manejar el desvanecimiento */
+.fade-out {
+    opacity: 0; /* Hacer el mensaje transparente */
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuarios</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h1>Usuarios Registrados</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Correo</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterar sobre los usuarios -->
+    <tr th:each="usuario : ${usuarios}">
+        <td th:text="${usuario.id}"></td>
+        <td th:text="${usuario.nombre}"></td>
+        <td th:text="${usuario.correo}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,16 @@
+.confirmation-box {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.btn-primary-custom {
+        background-color: #ff5722;
+        border-color: #ff5722;
+}
+.btn-primary-custom:hover {
+        background-color: #e64a19;
+        border-color: #e64a19;
+}

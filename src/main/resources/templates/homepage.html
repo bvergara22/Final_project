@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevStore</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<!-- Barra de navegación -->
+<section class="seccion-1">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" th:href="@{homepage}">DevStore</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="#seccion-2">Marcas</a>
+                <a class="nav-link" th:href="@{/acerca}">Acerca de nosotros</a>
+                <a class="nav-link" th:href="@{/acerca}">Contacto</a>
+                <a class="nav-link" th:href="@{/soporte}">Soporte cliente</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Contenido -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div class="texto-intro">
+                    <h2>¡El sitio web preferido para la compra de celulares al mejor precio y calidad!</h2>
+                    <p>
+                        Descubre la mejor selección de celulares en nuestra página web, donde calidad y precio se unen para ofrecerte lo último en tecnología.
+                        Encuentra las marcas más reconocidas a precios inigualables, con garantía y envío rápido.
+                        No pierdas la oportunidad de llevarte el smartphone de tus sueños al mejor precio del mercado. ¡Visítanos y elige el tuyo hoy mismo!.
+                    </p>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button onclick="window.location.href='/comprar'" type="button" class="btn btn-primary mx-3 btn-lg-custom">Comprar ahora</button>
+                    <button onclick="toggleLoginRegisterForm()" type="button" class="btn btn-outline-light mx-3 btn-lg-custom">Iniciar sesión</button>
+                </div>
+            </div>
+            <div class="col-sm">
+                <img th:src="@{/images/IPhones_image.png}" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="login-register-container" style="display:none;">
+    <div class="login-register-box">
+        <button class="close-button" onclick="toggleLoginRegisterForm()">×</button>
+
+        <!-- Mostrar mensajes de éxito o error -->
+        <div class="message-container text-center">
+            <div th:if="${mensaje}" class="alert alert-success" role="alert">
+                <p th:text="${mensaje}"></p>
+            </div>
+
+            <div th:if="${error}" class="alert alert-danger" role="alert">
+                <p th:text="${error}"></p>
+            </div>
+        </div>
+
+        <!-- Formulario de Inicio de Sesión -->
+        <div id="login-form" class="form-container">
+            <h3>Iniciar Sesión</h3>
+            <form th:action="@{/login}" method="post" class="px-4 py-3">
+                <div class="mb-3">
+                    <label for="loginCorreo" class="form-label">Correo</label>
+                    <input type="email" class="form-control" id="loginCorreo" name="correo" placeholder="Ingrese su correo" required>
+                </div>
+                <div class="mb-3">
+                    <label for="loginPassword" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="loginPassword" name="password" placeholder="Contraseña" required>
+                </div>
+                <button type="submit" class="btn btn-primary login-button">Iniciar Sesión</button>
+            </form>
+            <div class="dropdown-divider"></div>
+            <p class="down-divider">¿No tienes una cuenta? <a href="#" onclick="showRegister()">Registrarse</a></p>
+        </div>
+
+        <!-- Formulario de Registro de Usuario -->
+        <div id="register-form" class="form-container" style="display:none;">
+            <h3>Registro</h3>
+            <form th:action="@{/registrarse}" method="post" class="px-4 py-3">
+                <div class="mb-3">
+                    <label for="registerName" class="form-label">Nombre Completo</label>
+                    <input type="text" class="form-control" id="registerName" name="nombre" placeholder="Nombre Completo" required>
+                </div>
+                <div class="mb-3">
+                    <label for="registerCorreo" class="form-label">Correo</label>
+                    <input type="email" class="form-control" id="registerCorreo" name="correo" placeholder="email@example.com" required>
+                </div>
+                <div class="mb-3">
+                    <label for="registerPassword" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="registerPassword" name="password" placeholder="Contraseña" required>
+                </div>
+                <button type="submit" class="btn btn-primary register-button">Registrarse</button>
+            </form>
+            <div class="dropdown-divider"></div>
+            <p class="down-divider">¿Ya tienes una cuenta? <a href="#" onclick="showLogin()">Iniciar sesión</a></p>
+        </div>
+    </div>
+</div>
+
+<!-- Código JavaScript -->
+<script>
+    function toggleLoginRegisterForm() {
+        var container = document.querySelector('.login-register-container');
+        container.style.display = (container.style.display === 'none' || !container.style.display) ? 'flex' : 'none';
+    }
+
+    function showRegister() {
+        document.getElementById('login-form').style.display = 'none';
+        document.getElementById('register-form').style.display = 'block';
+    }
+
+    function showLogin() {
+        document.getElementById('register-form').style.display = 'none';
+        document.getElementById('login-form').style.display = 'block';
+    }
+    // Mostrar automáticamente el formulario de inicio de sesión si el parámetro "mostrarLogin" está presente
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('mostrarLogin')) {
+            toggleLoginRegisterForm(); // Mostrar la caja de login/registro
+            showLogin(); // Mostrar el formulario de inicio de sesión
+        }
+    };
+</script>
+
+<section id="seccion-2" class="seccion-2">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img th:src="@{/images/galaxy-s24-ultra.jpg}" alt="" class="img-fluid img-large">
+            </div>
+            <div class="col-md-6 txt-int2 text-center">
+                <h2>Marcas asociadas</h2>
+                <p>Apple y Samsung son nuestras dos principales marcas asociadas con la compra y venta de sus dispositivos celulares.</p>
+                <!-- Sección de testimonios -->
+                <div class="testimonials">
+                    <div class="testimonial-card">
+                        <div class="testimonial-logo">
+                            <img th:src="@{/images/apple-logo.png}" alt="apple-logo">
+                        </div>
+                        <p>"Diseño elegante, un ecosistema de software perfectamente integrado. Ofrecen una experiencia fluida, seguridad avanzada y actualizaciones continuas."</p>
+                        <h5>Tim Cook</h5>
+                        <small>CEO, Apple</small>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-logo">
+                            <img th:src="@{/images/samsung-logo2.png}" alt="samsung-logo">
+                        </div>
+                        <p>"Populares por su tecnología de vanguardia, pantallas de alta calidad y versatilidad. Samsung ofrece dispositivos potentes y adaptables para todo tipo de usuarios."</p>
+                        <h5>Jong-Hee Han</h5>
+                        <small>Vice Chairman and CEO, Samsung Electronics</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="seccion-3">
+    <div class="container">
+        <div class="row d-flex justify-content-center text-center">
+            <div class="text-3">
+                <h2>Últimos lanzamientos</h2>
+                <p>Explora los últimos avances en tecnología móvil con dos de los dispositivos
+                    más innovadores y poderosos del mercado actual.</p>
+            </div>
+            <div class="col-md-6">
+                <div class="video-card">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/eDqfg_LexCQ?si=xL9l1gvog8hJwpuY" title="YouTube video player"
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="video-card">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/3hPoEmlBQdY?si=bmap_WnsAKc_ZcR6" title="YouTube video player"
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-black text-white py-4">
+    <div class="container">
+        <div class="row">
+            <!-- Company Section -->
+            <div class="col-md-3">
+                <h5>Compañia</h5>
+                <ul class="list-unstyled">
+                    <li><a th:href="@{acerca}" class="text-white">About Us</a></li>
+                    <li><a th:href="@{acerca}" class="text-white">Blog</a></li>
+                    <li><a th:href="@{acerca}" class="text-white">Careers</a></li>
+                    <li><a th:href="@{acerca}" class="text-white">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Soporte seccion -->
+            <div class="col-md-3">
+                <h5>Soporte</h5>
+                <ul class="list-unstyled">
+                    <li><a th:href="@{soporte}" class="text-white">Help Center</a></li>
+                    <li><a th:href="@{soporte}" class="text-white">Safety Center</a></li>
+                    <li><a th:href="@{soporte}" class="text-white">Community Guidelines</a></li>
+                </ul>
+            </div>
+
+            <!-- Terminos seccion -->
+            <div class="col-md-3">
+                <h5>Terminos y condiciones</h5>
+                <ul class="list-unstyled">
+                    <li><a th:href="@{terminos}" class="text-white">Cookies Policy</a></li>
+                    <li><a th:href="@{terminos}" class="text-white">Privacy Policy</a></li>
+                    <li><a th:href="@{terminos}" class="text-white">Terms of Service</a></li>
+                    <li><a th:href="@{terminos}" class="text-white">Law Enforcement</a></li>
+                </ul>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-6 text-center text-md-start">
+                    <p>&copy; 2024 DevStore. All rights reserved</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="https://www.instagram.com" class="text-white"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com" class="text-white mx-2"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.twitter.com" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com" class="text-white mx-2"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+    // Función para mostrar el mensaje y desvanecerlo después de 3 segundos
+    function showAlert() {
+        const successMessage = document.querySelector('.alert.alert-success');
+        const errorMessage = document.querySelector('.alert.alert-danger');
+
+        // Verificar y mostrar el mensaje de éxito
+        if (successMessage) {
+            successMessage.style.display = 'block'; // Mostrar el mensaje
+            setTimeout(() => {
+                successMessage.classList.add('fade-out'); // Agregar clase para desvanecer
+                setTimeout(() => {
+                    successMessage.style.display = 'none'; // Ocultar después del desvanecimiento
+                    successMessage.classList.remove('fade-out'); // Reiniciar la clase
+                }, 500); // Esperar a que la transición de desvanecimiento termine
+            }, 3000); // Mostrar por 3 segundos
+        }
+
+        // Verificar y mostrar el mensaje de error
+        if (errorMessage) {
+            errorMessage.style.display = 'block'; // Mostrar el mensaje
+            setTimeout(() => {
+                errorMessage.classList.add('fade-out'); // Agregar clase para desvanecer
+                setTimeout(() => {
+                    errorMessage.style.display = 'none'; // Ocultar después del desvanecimiento
+                    errorMessage.classList.remove('fade-out'); // Reiniciar la clase
+                }, 500); // Esperar a que la transición de desvanecimiento termine
+            }, 3000); // Mostrar por 3 segundos
+        }
+    }
+
+    // Ejecutar la función cuando el DOM esté completamente cargado
+    document.addEventListener('DOMContentLoaded', showAlert);
+</script>
+</body>
+</html>

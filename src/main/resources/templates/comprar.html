@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprar - DevStore</title>
+    <link rel="stylesheet" th:href="@{/css/stylecomprar.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<div class="container text-center my-5 d-flex align-items-center justify-content-center">
+    <!-- Ícono para volver a la página principal -->
+    <a href="/homepage" class="icon-home me-3" title="Volver a la página principal">
+        <i class="fas fa-home"></i>
+    </a>
+
+    <!-- Título de la sección -->
+    <h1 class="modelos-title flex-grow-1">Explora la innovación de Apple y Samsung</h1>
+
+    <!-- Ícono del carrito de compras y perfil de usuario -->
+    <div class="d-flex align-items-center ms-3">
+        <a href="/carrito" class="icon-cart me-3" title="Ir al carrito de compras">
+            <i class="fas fa-shopping-cart"></i>
+        </a>
+
+        <!-- Ícono de cuenta de usuario con dropdown -->
+        <div class="dropdown">
+            <a href="#" class="icon-user" id="dropdownUser" data-bs-toggle="dropdown" aria-expanded="false" title="Mi cuenta">
+                <i class="fas fa-user-circle"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end text-center" aria-labelledby="dropdownUser">
+                <li><strong th:text="${usuario.nombre}">Nombre del usuario</strong></li>
+                <li><span th:text="${usuario.correo}">Correo del usuario</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="phoneDetailsModal" tabindex="-1" aria-labelledby="phoneDetailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="phoneDetailsModalLabel">Detalles del celular</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="phoneDetailsContent">
+                    <!-- Aquí se cargarán los detalles dinámicamente -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<section class="section section-select background-alt no-pad-bottom staggered-end">
+    <div class="galleries-container">
+        <div id="scroll-gallery-gallery-1" class="gallery active">
+            <div class="scroll-container">
+                <div class="item-container">
+                    <ul class="product-tile-set d-flex justify-content-between flex-nowrap">
+
+
+
+                        <!-- iPhone 16 Pro -->
+                        <li class="product-tile product-tile-iphone-16-pro">
+                            <div class="product-tile-header">
+                                <div class="product-tile-product-id">
+                                    <h3 class="product-tile-headline-group">
+                                        <span class="badge">Nuevo</span>
+                                        <p class="product-tile-headline">iPhone&nbsp;16&nbsp;Pro</p>
+                                    </h3>
+                                </div>
+                                <a href="javascript:void(0);" class="product-tile-image-link" onclick="showPhoneDetails('iPhone 16 Pro', 'El iPhone en su máxima expresión.', 'https://www.apple.com/v/iphone/home/bw/images/overview/select/iphone_16pro__erw9alves2qa_xlarge.png')">
+                                    <div class="product-tile-image-wrapper">
+                                        <picture id="overview-select-iphone-16pro">
+                                            <img src="https://www.apple.com/v/iphone/home/bw/images/overview/select/iphone_16pro__erw9alves2qa_xlarge.png" alt="iPhone 16 Pro">
+                                        </picture>
+                                    </div>
+                                </a>
+                            </div>
+                            <p class="product-tile-positioning">El iPhone en su máxima expresión.</p>
+                            <div class="product-tile-ctas">
+                                <a href="javascript:void(0);" class="btn btn-primary login-button btn-detalles"
+                                   onclick="showPhoneDetails('iPhone 16 Pro', 'El iPhone en su máxima expresión',
+                                    'https://www.apple.com/v/iphone/home/bw/images/overview/select/iphone_16pro__erw9alves2qa_xlarge.png',
+                                    '$1,199', ['Diseño de Titanio resistente y liviano', 'Escribe, comunícate y organízate mejor con Apple Intelligence', 'Chip A18 Pro: Rendimiento e inteligencia incomparables', 'Su batería ofrece hasta 27 horas de reproducción de video', 'Con iOS 18 puedes personalizar los colores de los íconos'])">
+                                    Detalles
+                                </a>
+
+                                <!-- Formulario de añadir al carrito para iPhone 16 Pro -->
+                                <form action="/agregarCarrito" method="post" class="d-flex align-items-center justify-content-center mt-2">
+                                    <input type="hidden" name="modelo" value="iPhone 16 Pro" />
+                                    <input type="hidden" name="precio" value="1199" />
+                                    <!-- Campo de cantidad -->
+                                    <input type="number" name="cantidad" min="1" value="1" required class="form-control text-center cantidad-input mx-1" />
+                                    <button type="submit" class="btn btn-outline-secondary add-to-cart-btn">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </li>
+
+
+
+                        <!-- iPhone 16 -->
+                        <li class="product-tile product-tile-iphone-16">
+                            <div class="product-tile-header">
+                                <div class="product-tile-product-id">
+                                    <h3 class="product-tile-headline-group">
+                                        <span class="badge">Nuevo</span>
+                                        <p class="product-tile-headline">iPhone&nbsp;16</p>
+                                    </h3>
+                                </div>
+                                <a href="javascript:void(0);" class="product-tile-image-link" onclick="showPhoneDetails('iPhone 16', 'Repleto de posibilidades.', 'https://www.apple.com/v/iphone/home/bw/images/overview/select/iphone_16__c5bvots96jee_xlarge.png')">
+                                    <div class="product-tile-image-wrapper">
+                                        <picture id="overview-select-iphone-16">
+                                            <img src="https://www.apple.com/v/iphone/home/bw/images/overview/select/iphone_16__c5bvots96jee_xlarge.png" alt="iPhone 16">
+                                        </picture>
+                                    </div>
+                                </a>
+                            </div>
+                            <p class="product-tile-positioning">Repleto de posibilidades.</p>
+                            <div class="product-tile-ctas">
+                                <a href="javascript:void(0);" class="btn btn-primary login-button btn-detalles"
+                                   onclick="showPhoneDetails('iPhone 16', 'Repleto de posibilidades.',
+                                    'https://www.apple.com/v/iphone/home/bw/images/overview/select/iphone_16__c5bvots96jee_xlarge.png',
+                                    '$799', ['Diseño de aluminio de calidad aeroespacial', 'Control de cámara para ajustar exposición y zoom al instante', 'Cámara Fusión: 48 MP, zoom óptico 2x y ultra gran angular', 'Chip A18 mayor velocidad, eficiencia y ahorro energético', 'Su batería ofrece hasta 22 horas de reproducción de video'])">
+                                    Detalles
+                                </a>
+
+                                <!-- Formulario de añadir al carrito para iPhone 16 -->
+                                <form action="/agregarCarrito" method="post" class="d-flex align-items-center justify-content-center mt-2">
+                                    <input type="hidden" name="modelo" value="iPhone 16" />
+                                    <input type="hidden" name="precio" value="799" />
+                                    <!-- Campo de cantidad -->
+                                    <input type="number" name="cantidad" min="1" value="1" required class="form-control text-center cantidad-input mx-1" />
+                                    <button type="submit" class="btn btn-outline-secondary add-to-cart-btn">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </li>
+
+                        <!-- iPhone 15 -->
+                        <li class="product-tile product-tile-iphone-15">
+                            <div class="product-tile-header">
+                                <div class="product-tile-product-id">
+                                    <h3 class="product-tile-headline-group">
+                                        <span class="badge">Nuevo</span>
+                                        <p class="product-tile-headline">iPhone&nbsp;15</p>
+                                    </h3>
+                                </div>
+                                <a href="javascript:void(0);" class="product-tile-image-link" onclick="showPhoneDetails('iPhone 15', 'Increíble como siempre.', 'https://www.apple.com/v/iphone/home/bw/images/overview/select/iphone_15__buwagff0mwwi_xlarge.png')">
+                                    <div class="product-tile-image-wrapper">
+                                        <picture id="overview-select-iphone-15">
+                                            <img src="https://www.apple.com/v/iphone/home/bw/images/overview/select/iphone_15__buwagff0mwwi_xlarge.png" alt="iPhone 15">
+                                        </picture>
+                                    </div>
+                                </a>
+                            </div>
+                            <p class="product-tile-positioning">Increíble como siempre.</p>
+                            <div class="product-tile-ctas">
+                                <a href="javascript:void(0);" class="btn btn-primary login-button btn-detalles"
+                                   onclick="showPhoneDetails('iPhone 15', 'Increíble como siempre.',
+                                    'https://www.apple.com/v/iphone/home/bw/images/overview/select/iphone_15__buwagff0mwwi_xlarge.png',
+                                    '$699', ['Teleobjetivo 2x: Tomas perfectas en primer plano', 'Cámara de 48 MP: Fotos espectaculares y detalladas', 'Chip A16 Bionic: Potencia y eficiencia todo el día', 'Detección de Choques: iPhone solicita ayuda por ti', 'Llega al final del día con una sola carga'])">
+                                    Detalles
+                                </a>
+
+                                <!-- Formulario de añadir al carrito para iPhone 15 -->
+                                <form action="/agregarCarrito" method="post" class="d-flex align-items-center justify-content-center mt-2">
+                                    <input type="hidden" name="modelo" value="iPhone 15" />
+                                    <input type="hidden" name="precio" value="699" />
+                                    <input type="number" name="cantidad" min="1" value="1" required class="form-control text-center cantidad-input mx-1" />
+                                    <button type="submit" class="btn btn-outline-secondary add-to-cart-btn">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </li>
+
+                        <!-- iPhone 14 -->
+                        <li class="product-tile product-tile-iphone-14">
+                            <div class="product-tile-header">
+                                <div class="product-tile-product-id">
+                                    <h3 class="product-tile-headline-group">
+                                        <span class="badge">Nuevo</span>
+                                        <p class="product-tile-headline">iPhone&nbsp;14</p>
+                                    </h3>
+                                </div>
+                                <a href="javascript:void(0);" class="product-tile-image-link" onclick="showPhoneDetails('iPhone 14', 'Todo para sorprenderte.', 'https://www.apple.com/v/iphone/home/bw/images/overview/select/iphone_14__eso1fig4ci6a_xlarge.png')">
+                                    <div class="product-tile-image-wrapper">
+                                        <picture id="overview-select-iphone-14">
+                                            <img src="https://www.apple.com/v/iphone/home/bw/images/overview/select/iphone_14__eso1fig4ci6a_xlarge.png" alt="iPhone 14">
+                                        </picture>
+                                    </div>
+                                </a>
+                            </div>
+                            <p class="product-tile-positioning">Todo para sorprenderte.</p>
+                            <div class="product-tile-ctas">
+                                <a href="javascript:void(0);" class="btn btn-primary login-button btn-detalles"
+                                   onclick="showPhoneDetails('iPhone 14', 'Todo para sorprenderte.',
+                                    'https://www.apple.com/v/iphone/home/bw/images/overview/select/iphone_14__eso1fig4ci6a_xlarge.png',
+                                    '$629', ['Chip A15 Bionic GPU 5 núcleos rendimiento fuera de serie', 'Modo Cine 4K Dolby Vision de hasta 30 cps', 'Modo Acción para lograr videos estables', 'Detección de Choques, funcionalidad de seguridad', 'Ceramic Shield y resistencia al agua'])">
+                                    Detalles
+                                </a>
+
+                                <!-- Formulario de añadir al carrito para iPhone 14 -->
+                                <form action="/agregarCarrito" method="post" class="d-flex align-items-center justify-content-center mt-2">
+                                    <input type="hidden" name="modelo" value="iPhone 14" />
+                                    <input type="hidden" name="precio" value="629" />
+                                    <input type="number" name="cantidad" min="1" value="1" required class="form-control text-center cantidad-input mx-1" />
+                                    <button type="submit" class="btn btn-outline-secondary add-to-cart-btn">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </li>
+
+
+
+                        <!-- iPhone SE -->
+                        <li class="product-tile product-tile-iphone-SE">
+                            <div class="product-tile-header">
+                                <div class="product-tile-product-id">
+                                    <h3 class="product-tile-headline-group">
+                                        <span class="badge">Nuevo</span>
+                                        <p class="product-tile-headline">iPhone&nbsp;SE</p>
+                                    </h3>
+                                </div>
+                                <a href="javascript:void(0);" class="product-tile-image-link"
+                                   onclick="showPhoneDetails('iPhone SE', 'Poder en serio. Vale la pena en serio.', 'https://www.apple.com/v/iphone/home/bx/images/overview/select/iphone_se__cuaa2bdndqeu_xlarge.png')">
+                                    <div class="product-tile-image-wrapper">
+                                        <picture id="overview-select-iphone-SE">
+                                            <img src="https://www.apple.com/v/iphone/home/bx/images/overview/select/iphone_se__cuaa2bdndqeu_xlarge.png" alt="iPhone SE">
+                                        </picture>
+                                    </div>
+                                </a>
+                            </div>
+                            <p class="product-tile-positioning">Poder en serio. Vale la pena en serio.</p>
+                            <div class="product-tile-ctas">
+                                <a href="javascript:void(0);" class="btn btn-primary login-button btn-detalles"
+                                   onclick="showPhoneDetails('iPhone SE', 'Poder en serio. Vale la pena en serio.',
+                                    'https://www.apple.com/v/iphone/home/bx/images/overview/select/iphone_se__cuaa2bdndqeu_xlarge.png',
+                                    '$429', ['Cámara gran angular de 12 MP', 'Apertura de ƒ/1.8', 'Zoom digital de hasta 5x',
+                                    'Modo Retrato con Control de Profundidad', 'Iluminación de Retrato con seis efectos',
+                                    'Estabilización óptica de imagen', 'Flash True Tone con sincronización lenta',
+                                    'Fotos panorámicas (hasta 63 MP)'])">
+                                    Detalles
+                                </a>
+
+                                <!-- Formulario de añadir al carrito para iPhone SE -->
+                                <form action="/agregarCarrito" method="post" class="d-flex align-items-center justify-content-center mt-2">
+                                    <input type="hidden" name="modelo" value="iPhone SE" />
+                                    <input type="hidden" name="precio" value="429" />
+                                    <!-- Campo de cantidad -->
+                                    <input type="number" name="cantidad" min="1" value="1" required class="form-control text-center cantidad-input mx-1" />
+                                    <button type="submit" class="btn btn-outline-secondary add-to-cart-btn">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Segunda sección -->
+<section class="section section-select background-alt no-pad-bottom staggered-end second-row">
+    <div class="galleries-container">
+        <div id="scroll-gallery-gallery" class="gallery active">
+            <div class="scroll-container">
+                <div class="item-container">
+                    <ul class="product-tile-set d-flex justify-content-between flex-nowrap">
+
+                        <!-- Galaxy S24 Ultra 5G -->
+                        <li class="product-tile product-tile-galaxy-s24-ultra">
+                            <div class="product-tile-header">
+                                <div class="product-tile-product-id">
+                                    <h3 class="product-tile-headline-group">
+                                        <span class="badge">Nuevo</span>
+                                        <p class="product-tile-headline">Galaxy&nbsp;S24&nbsp;Ultra 5G</p>
+                                    </h3>
+                                </div>
+                                <a href="javascript:void(0);" class="product-tile-image-link" onclick="showPhoneDetails('Galaxy S24 Ultra 5G', 'Rendimiento simplemente épico.', 'https://images.samsung.com/is/image/samsung/p6pim/co/2401/gallery/co-galaxy-s24-s928-sm-s928bztultc-thumb-539325481?$172_172_PNG$')">
+                                    <div class="product-tile-image-wrapper">
+                                        <picture id="overview-select-galaxy-s24-ultra">
+                                            <img src="https://images.samsung.com/is/image/samsung/p6pim/co/2401/gallery/co-galaxy-s24-s928-sm-s928bztultc-thumb-539325481?$172_172_PNG$" alt="Galaxy S24 Ultra 5G">
+                                        </picture>
+                                    </div>
+                                </a>
+                            </div>
+                            <p class="product-tile-positioning">Rendimiento simplemente épico.</p>
+                            <div class="product-tile-ctas">
+                                <a href="javascript:void(0);" class="btn btn-primary login-button btn-detalles"
+                                   onclick="showPhoneDetails('Galaxy S24 Ultra 5G', 'Rendimiento simplemente épico.', 'https://images.samsung.com/is/image/samsung/p6pim/co/2401/gallery/co-galaxy-s24-s928-sm-s928bztultc-thumb-539325481?$172_172_PNG$', '$1,179', ['Pantalla Dynamic AMOLED 2X de 6.8 pulgadas', 'Sensor principal de 200 MP', 'Snapdragon 8 Gen 3', 'Batería de 5000 mAh', 'Zoom digital hasta 100x'])">
+                                    Detalles
+                                </a>
+
+                                <!-- Formulario de añadir al carrito para Galaxy S24 Ultra 5G -->
+                                <form action="/agregarCarrito" method="post" class="d-flex align-items-center justify-content-center mt-2">
+                                    <input type="hidden" name="modelo" value="Galaxy S24 Ultra 5G" />
+                                    <input type="hidden" name="precio" value="1.179" />
+                                    <input type="number" name="cantidad" min="1" value="1" required class="form-control text-center cantidad-input mx-1" />
+                                    <button type="submit" class="btn btn-outline-secondary add-to-cart-btn">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </li>
+
+                        <!-- Galaxy S23 Ultra 5G -->
+                        <li class="product-tile product-tile-galaxy-s23-ultra">
+                            <div class="product-tile-header">
+                                <div class="product-tile-product-id">
+                                    <h3 class="product-tile-headline-group">
+                                        <span class="badge">Nuevo</span>
+                                        <p class="product-tile-headline">Galaxy&nbsp;S23&nbsp;Ultra 5G</p>
+                                    </h3>
+                                </div>
+                                <a href="javascript:void(0);" class="product-tile-image-link"
+                                   onclick="showPhoneDetails('Galaxy S23 Ultra 5G', 'Innovación sin límites.', 'https://images.samsung.com/is/image/samsung/p6pim/co/2302/gallery/co-galaxy-s23-s918-sm-s918bzeultc-thumb-534860348?$172_172_PNG$')">
+                                    <div class="product-tile-image-wrapper">
+                                        <picture id="overview-select-galaxy-s23-ultra">
+                                            <img src="https://images.samsung.com/is/image/samsung/p6pim/co/2302/gallery/co-galaxy-s23-s918-sm-s918bzeultc-thumb-534860348?$172_172_PNG$" alt="Galaxy S23 Ultra 5G">
+                                        </picture>
+                                    </div>
+                                </a>
+                            </div>
+                            <p class="product-tile-positioning">Innovación sin límites.</p>
+                            <div class="product-tile-ctas">
+                                <a href="javascript:void(0);" class="btn btn-primary login-button"
+                                   onclick="showPhoneDetails('Galaxy S23 Ultra 5G', 'Innovación sin límites.', 'https://images.samsung.com/is/image/samsung/p6pim/co/2302/gallery/co-galaxy-s23-s918-sm-s918bzeultc-thumb-534860348?$172_172_PNG$', '$637', ['Cámara impresionante graba los mejores momentos', 'Los mejores retratos gracias al Dual Pixel', 'La mejor experiencia gracias al Snapdragon 8', 'S Pen que te ayudará mejorar tu productividad', 'Carga Rápida que dura todo el día'])">
+                                    Detalles
+                                </a>
+                                <!-- Formulario de añadir al carrito para Galaxy S23 Ultra 5G -->
+                                <form action="/agregarCarrito" method="post" class="d-flex align-items-center justify-content-center mt-2">
+                                    <input type="hidden" name="modelo" value="Galaxy S23 Ultra 5G" />
+                                    <input type="hidden" name="precio" value="637" />
+                                    <input type="number" name="cantidad" min="1" value="1" required class="form-control text-center cantidad-input mx-1" />
+                                    <button type="submit" class="btn btn-outline-secondary add-to-cart-btn">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </li>
+
+                        <!-- Galaxy S24 5G -->
+                        <li class="product-tile product-tile-galaxy-s24">
+                            <div class="product-tile-header">
+                                <div class="product-tile-product-id">
+                                    <h3 class="product-tile-headline-group">
+                                        <span class="badge">Nuevo</span>
+                                        <p class="product-tile-headline">Galaxy&nbsp;S24 5G</p>
+                                    </h3>
+                                </div>
+                                <a href="javascript:void(0);" class="product-tile-image-link"
+                                   onclick="showPhoneDetails('Galaxy S24 5G', 'Diseñado para destacar.', 'https://images.samsung.com/is/image/samsung/p6pim/co/2401/gallery/co-galaxy-s24-plus-sm-s926bzvkltc-thumb-539295931?$172_172_PNG$')">
+                                    <div class="product-tile-image-wrapper">
+                                        <picture id="overview-select-galaxy-s24">
+                                            <img src="https://images.samsung.com/is/image/samsung/p6pim/co/2401/gallery/co-galaxy-s24-plus-sm-s926bzvkltc-thumb-539295931?$172_172_PNG$" alt="Galaxy S24+ 5G">
+                                        </picture>
+                                    </div>
+                                </a>
+                            </div>
+                            <p class="product-tile-positioning">Diseñado para destacar.</p>
+                            <div class="product-tile-ctas">
+                                <a href="javascript:void(0);" class="btn btn-primary login-button"
+                                   onclick="showPhoneDetails('Galaxy S24 5G', 'Diseñado para destacar.', 'https://images.samsung.com/is/image/samsung/p6pim/co/2401/gallery/co-galaxy-s24-plus-sm-s926bzvkltc-thumb-539295931?$172_172_PNG$', '$920', ['Procesador Qualcomm Snapdragon® 8 Gen 3 para Galaxy', 'RAM de 8 GB + 128 GB', 'Sistema operativo Android 14, One UI6.1', 'Bloqueo por huella dactilar, reconocimiento facial'])">
+                                    Detalles
+                                </a>
+                                <!-- Formulario de añadir al carrito para Galaxy S24 5G -->
+                                <form action="/agregarCarrito" method="post" class="d-flex align-items-center justify-content-center mt-2">
+                                    <input type="hidden" name="modelo" value="Galaxy S24 5G" />
+                                    <input type="hidden" name="precio" value="920" />
+                                    <input type="number" name="cantidad" min="1" value="1" required class="form-control text-center cantidad-input mx-1" />
+                                    <button type="submit" class="btn btn-outline-secondary add-to-cart-btn">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </li>
+
+                        <!-- Galaxy Z Flip6 5G -->
+                        <li class="product-tile product-tile-galaxy-z-flip6">
+                            <div class="product-tile-header">
+                                <div class="product-tile-product-id">
+                                    <h3 class="product-tile-headline-group">
+                                        <span class="badge">Nuevo</span>
+                                        <p class="product-tile-headline">Galaxy&nbsp;Z Flip6 5G</p>
+                                    </h3>
+                                </div>
+                                <a href="javascript:void(0);" class="product-tile-image-link"
+                                   onclick="showPhoneDetails('Galaxy Z Flip6 5G', 'Plegable en cada ángulo.', 'https://images.samsung.com/is/image/samsung/p6pim/co/sm-f741bzsjcoo/gallery/co-galaxy-zflip6-f741-518343-sm-f741bzsjcoo-thumb-543116136?$172_172_PNG$')">
+                                    <div class="product-tile-image-wrapper">
+                                        <picture id="overview-select-galaxy-z-flip6">
+                                            <img src="https://images.samsung.com/is/image/samsung/p6pim/co/sm-f741bzsjcoo/gallery/co-galaxy-zflip6-f741-518343-sm-f741bzsjcoo-thumb-543116136?$172_172_PNG$" alt="Galaxy Z Flip6 5G">
+                                        </picture>
+                                    </div>
+                                </a>
+                            </div>
+                            <p class="product-tile-positioning">Plegable en cada ángulo.</p>
+                            <div class="product-tile-ctas">
+                                <a href="javascript:void(0);" class="btn btn-primary login-button"
+                                   onclick="showPhoneDetails('Galaxy Z Flip6 5G', 'Plegable en cada ángulo.', 'https://images.samsung.com/is/image/samsung/p6pim/co/sm-f741bzsjcoo/gallery/co-galaxy-zflip6-f741-518343-sm-f741bzsjcoo-thumb-543116136?$172_172_PNG$', '$1,199', ['Pantalla flexible de 6.7 pulgadas', 'Elegante y compacto', 'Durabilidad mejorada', 'Interfaz personalizada', 'Batería de larga duración'])">
+                                    Detalles
+                                </a>
+                                <!-- Formulario de añadir al carrito para Galaxy Z Flip6 5G -->
+                                <form action="/agregarCarrito" method="post" class="d-flex align-items-center justify-content-center mt-2">
+                                    <input type="hidden" name="modelo" value="Galaxy Z Flip6 5G" />
+                                    <input type="hidden" name="precio" value="1.199" />
+                                    <input type="number" name="cantidad" min="1" value="1" required class="form-control text-center cantidad-input mx-1" />
+                                    <button type="submit" class="btn btn-outline-secondary add-to-cart-btn">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                  </form>
+                            </div>
+                        </li>
+
+
+                        <!-- Galaxy Z Fold6 5G -->
+                        <li class="product-tile product-tile-galaxy-z-fold6">
+                            <div class="product-tile-header">
+                                <div class="product-tile-product-id">
+                                    <h3 class="product-tile-headline-group">
+                                        <span class="badge">Nuevo</span>
+                                        <p class="product-tile-headline">Galaxy&nbsp;Z Fold6 5G</p>
+                                    </h3>
+                                </div>
+                                <a href="javascript:void(0);" class="product-tile-image-link" onclick="showPhoneDetails('Galaxy Z Fold6 5G', 'Innovación en cada ángulo.', 'https://example.com/path-to-image-galaxy-z-fold6.png')">
+                                    <div class="product-tile-image-wrapper">
+                                        <picture id="overview-select-galaxy-z-fold6">
+                                            <img src="https://images.samsung.com/is/image/samsung/p6pim/co/sm-f956bdbjcoo/gallery/co-galaxy-z-fold6-f956-518347-sm-f956bdbjcoo-thumb-543116355?$172_172_PNG$" alt="Galaxy Z Fold6 5G">
+                                        </picture>
+                                    </div>
+                                </a>
+                            </div>
+                            <p class="product-tile-positioning">Innovación en cada ángulo.</p>
+                            <div class="product-tile-ctas">
+                                <a href="javascript:void(0);" class="btn btn-primary login-button btn-detalles"
+                                   onclick="showPhoneDetails('Galaxy Z Fold6 5G', 'Innovación en cada ángulo.', 'https://images.samsung.com/is/image/samsung/p6pim/co/sm-f956bdbjcoo/gallery/co-galaxy-z-fold6-f956-518347-sm-f956bdbjcoo-thumb-543116355?$172_172_PNG$', '$1,999', ['Pantalla AMOLED plegable de 7.6 pulgadas', 'Potente chip Snapdragon 8 Gen 3', 'Compatible con S Pen', 'Modo multitarea avanzado', 'Batería de larga duración'])">
+                                    Detalles
+                                </a>
+
+                                <!-- Formulario de añadir al carrito para Galaxy Z Fold6 5G -->
+                                <form action="/agregarCarrito" method="post" class="d-flex align-items-center justify-content-center mt-2">
+                                    <input type="hidden" name="modelo" value="Galaxy Z Fold6 5G" />
+                                    <input type="hidden" name="precio" value="1.999" />
+                                    <input type="number" name="cantidad" min="1" value="1" required class="form-control text-center cantidad-input mx-1" />
+                                    <button type="submit" class="btn btn-outline-secondary add-to-cart-btn">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+    // Función para mostrar los detalles del celular en el modal
+    function showPhoneDetails(name, description, imageUrl, price, features) {
+        const modalTitle = document.getElementById('phoneDetailsModalLabel');
+        const modalContent = document.getElementById('phoneDetailsContent');
+
+        modalTitle.innerText = name;
+        modalContent.innerHTML = `
+            <img src="${imageUrl}" alt="${name}" class="img-fluid mb-3">
+            <p><strong>Descripción:</strong> ${description}</p>
+            <p><strong>Características destacadas:</strong></p>
+            <ul>
+                ${features.map(feature => `<li>${feature}</li>`).join('')}
+            </ul>
+            <p><strong>Precio:</strong> ${price}</p>
+        `;
+
+        const modal = new bootstrap.Modal(document.getElementById('phoneDetailsModal'));
+        modal.show();
+    }
+
+
+    // Funcionalidad de añadir al carrito
+    document.addEventListener("DOMContentLoaded", function() {
+        const addToCartButtons = document.querySelectorAll(".add-to-cart");
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener("click", function() {
+                const productTile = button.closest(".product-tile");
+                const productName = productTile.querySelector(".product-tile-headline").textContent;
+                const productPrice = productTile.querySelector(".btn.login-button").getAttribute("onclick").match(/\$\d+,\d+/)[0];
+
+                const product = {
+                    name: productName,
+                    price: productPrice,
+                    quantity: 1
+                };
+
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                const existingProduct = cart.find(item => item.name === product.name);
+
+                if (existingProduct) {
+                    existingProduct.quantity++;
+                } else {
+                    cart.push(product);
+                }
+
+                localStorage.setItem("cart", JSON.stringify(cart));
+                alert(`${productName} se ha añadido al carrito.`);
+            });
+        });
+    });
+</script>
+
+
+
+
+
+
+<footer class="bg-black text-white py-4">
+    <div class="container">
+        <div class="row">
+            <!-- Company Section -->
+            <div class="col-md-3">
+                <h5>Compañia</h5>
+                <ul class="list-unstyled">
+                    <li><a th:href="@{acerca}" class="text-white">About Us</a></li>
+                    <li><a th:href="@{acerca}" class="text-white">Blog</a></li>
+                    <li><a th:href="@{acerca}" class="text-white">Careers</a></li>
+                    <li><a th:href="@{acerca}" class="text-white">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Soporte seccion -->
+            <div class="col-md-3">
+                <h5>Soporte</h5>
+                <ul class="list-unstyled">
+                    <li><a th:href="@{soporte}" class="text-white">Help Center</a></li>
+                    <li><a th:href="@{soporte}" class="text-white">Safety Center</a></li>
+                    <li><a th:href="@{soporte}" class="text-white">Community Guidelines</a></li>
+                </ul>
+            </div>
+
+            <!-- Terminos seccion -->
+            <div class="col-md-3">
+                <h5>Terminos y condiciones</h5>
+                <ul class="list-unstyled">
+                    <li><a th:href="@{terminos}" class="text-white">Cookies Policy</a></li>
+                    <li><a th:href="@{terminos}" class="text-white">Privacy Policy</a></li>
+                    <li><a th:href="@{terminos}" class="text-white">Terms of Service</a></li>
+                    <li><a th:href="@{terminos}" class="text-white">Law Enforcement</a></li>
+                </ul>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-6 text-center text-md-start">
+                    <p>&copy; 2024 DevStore. All rights reserved</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="https://www.instagram.com" class="text-white"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com" class="text-white mx-2"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.twitter.com" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com" class="text-white mx-2"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
